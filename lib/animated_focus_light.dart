@@ -213,8 +213,14 @@ class _AnimatedFocusLightState extends State<AnimatedFocusLight>
   void forwardAnimation() {
     var targetPosition = getTargetCurrent(widget.targets[currentFocus]);
     if (targetPosition == null) {
-      this._finish();
-      return;
+      final plusIndex = currentFocus + 1;
+      if (widget.targets.length - 1 == plusIndex) {
+        this._finish();
+        return;
+      } else {
+        currentFocus++;
+        forwardAnimation();
+      }
     }
 
     setState(() {
