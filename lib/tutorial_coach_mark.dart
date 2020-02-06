@@ -54,6 +54,8 @@ class TutorialCoachMark {
         clickSkip: clickSkip,
         alignSkip: alignSkip,
         alignPrevious: alignPrevious,
+        textStyleSkip: textStyleSkip,
+        textSkip: textSkip,
         alignNext: alignNext,
         colorShadow: colorShadow,
         opacityShadow: opacityShadow,
