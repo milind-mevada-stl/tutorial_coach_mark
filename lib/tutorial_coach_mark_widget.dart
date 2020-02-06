@@ -23,11 +23,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   @required
   final Stream<AlignmentGeometry> alignNext;
   final String textSkip;
-  final String textPrevious;
-  final String textNext;
   final TextStyle textStyleSkip;
-  final TextStyle textStylePrevious;
-  final TextStyle textStyleNext;
   final Function() onPreviousClick;
 
   const TutorialCoachMarkWidget({
@@ -40,15 +36,11 @@ class TutorialCoachMarkWidget extends StatefulWidget {
     this.alignSkip,
     this.alignPrevious,
     this.alignNext,
-    this.textSkip = "SKIP",
-    this.textPrevious = "PREVIOUS",
-    this.textNext = "NEXT",
     this.clickSkip,
     this.colorShadow = Colors.black,
     this.opacityShadow = 0.8,
+    this.textSkip = "SKIP",
     this.textStyleSkip = const TextStyle(color: Colors.white),
-    this.textStylePrevious = const TextStyle(color: Colors.white),
-    this.textStyleNext = const TextStyle(color: Colors.white),
     this.onPreviousClick,
   }) : super(key: key);
 
@@ -255,15 +247,21 @@ class _TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
                   return AnimatedOpacity(
                     opacity: snapshot.data,
                     duration: Duration(milliseconds: 300),
-                    child: InkWell(
-                      onTap: () {
-                        _controllerTapPrevious.add(null);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          widget.textPrevious,
-                          style: widget.textStylePrevious,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Container(
+                        height: 30,
+                        width: 30,
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: () {
+                            _controllerTapPrevious.add(null);
+                          },
+                          child: Icon(
+                            Icons.navigate_before,
+                            color: Colors.blue,
+                            size: 15,
+                          ),
                         ),
                       ),
                     ),
@@ -289,15 +287,21 @@ class _TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
                   return AnimatedOpacity(
                     opacity: snapshot.data,
                     duration: Duration(milliseconds: 300),
-                    child: InkWell(
-                      onTap: () {
-                        _controllerTapNext.add(null);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          widget.textNext,
-                          style: widget.textStyleNext,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: () {
+                            _controllerTapNext.add(null);
+                          },
+                          child: Icon(
+                            Icons.navigate_next,
+                            color: Colors.blue,
+                            size: 15,
+                          ),
                         ),
                       ),
                     ),

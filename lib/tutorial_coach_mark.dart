@@ -21,11 +21,7 @@ class TutorialCoachMark {
   @required
   final Stream<AlignmentGeometry> alignNext;
   final String textSkip;
-  final String textPrevious;
-  final String textNext;
   final TextStyle textStyleSkip;
-  final TextStyle textStylePrevious;
-  final TextStyle textStyleNext;
   final Color colorShadow;
   final double opacityShadow;
 
@@ -44,11 +40,7 @@ class TutorialCoachMark {
     this.alignPrevious,
     this.alignNext,
     this.textSkip = "SKIP",
-    this.textPrevious = "PREVIOUS",
-    this.textNext = "NEXT",
     this.textStyleSkip = const TextStyle(color: Colors.white),
-    this.textStylePrevious = const TextStyle(color: Colors.white),
-    this.textStyleNext = const TextStyle(color: Colors.white),
     this.opacityShadow = 0.8,
   }) : assert(targets != null, opacityShadow >= 0 && opacityShadow <= 1);
 
@@ -61,14 +53,8 @@ class TutorialCoachMark {
         paddingFocus: paddingFocus,
         clickSkip: clickSkip,
         alignSkip: alignSkip,
-        textSkip: textSkip,
-        textStyleSkip: textStyleSkip,
         alignPrevious: alignPrevious,
         alignNext: alignNext,
-        textPrevious: textPrevious,
-        textNext: textNext,
-        textStylePrevious: textStylePrevious,
-        textStyleNext: textStyleNext,
         colorShadow: colorShadow,
         opacityShadow: opacityShadow,
         finish: () {
