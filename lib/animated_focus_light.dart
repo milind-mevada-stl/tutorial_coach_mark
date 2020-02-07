@@ -153,25 +153,25 @@ class _AnimatedFocusLightState extends State<AnimatedFocusLight>
                     height: double.maxFinite,
                     child: currentFocus != -1
                         ? CustomPaint(
-                            painter: widget?.targets[currentFocus]?.shape ==
-                                    ShapeLightFocus.RRect
-                                ? LightPaintRect(
-                                    colorShadow: widget.colorShadow,
-                                    positioned: positioned,
-                                    progress: progressAnimated,
-                                    offset: widget.paddingFocus,
-                                    target: targetPosition,
-                                    radius: 15,
-                                    opacityShadow: widget.opacityShadow,
-                                  )
-                                : LightPaint(
-                                    progressAnimated,
-                                    positioned,
-                                    sizeCircle,
-                                    colorShadow: widget.colorShadow,
-                                    opacityShadow: widget.opacityShadow,
-                                  ),
-                          )
+                      painter: widget?.targets[currentFocus]?.shape ==
+                          ShapeLightFocus.RRect
+                          ? LightPaintRect(
+                        colorShadow: widget.colorShadow,
+                        positioned: positioned,
+                        progress: progressAnimated,
+                        offset: widget.paddingFocus,
+                        target: targetPosition,
+                        radius: 15,
+                        opacityShadow: widget.opacityShadow,
+                      )
+                          : LightPaint(
+                        progressAnimated,
+                        positioned,
+                        sizeCircle,
+                        colorShadow: widget.colorShadow,
+                        opacityShadow: widget.opacityShadow,
+                      ),
+                    )
                         : Container(),
                   );
                 },
@@ -214,12 +214,13 @@ class _AnimatedFocusLightState extends State<AnimatedFocusLight>
     var targetPosition = getTargetCurrent(widget.targets[currentFocus]);
     if (targetPosition == null) {
       final plusIndex = currentFocus + 1;
-      if (widget.targets.length - 1 == plusIndex) {
+      if (widget.targets.length == plusIndex) {
         this._finish();
         return;
       } else {
         currentFocus++;
         forwardAnimation();
+        return;
       }
     }
 
